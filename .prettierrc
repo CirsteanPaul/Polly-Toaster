@@ -1,0 +1,15 @@
+{
+    "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "endOfLine": "auto",
+  "printWidth": 180,
+  "overrides": [
+    {
+      "files": "src/translation/**/*.ts",
+      "options": {
+        "printWidth": 220
+      }
+    }
+  ]   
+}
