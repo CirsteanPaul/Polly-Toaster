@@ -4,9 +4,20 @@
 
 @font-face {
   font-family: Westgate;
-  src: url("./fonts/Westgate-Regular.woff") format("woff");
+  src: url("./fonts/Westgate-Bold.woff2") format("woff2");
 }
 
 *{
     font-family: Westgate;
+}
+
+
+.gallery-image {
+  border-width: 20px;
+}
+
+@media screen and (max-width: 700px){
+  .gallery-image {
+      border-width: 10px;
+  }
 }

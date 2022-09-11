@@ -4,9 +4,14 @@ module.exports = {
   theme: {
     colors: {
       accent: '#E2A750',
-      headline: '#F3F3F6',
-      text: 'rgba(255, 255, 255, 0.72);',
-      background: '#0C0C0C',
+      headline: '#D9D9D9',
+      title: '#242424',
+      overlay: 'rgba(43, 43, 43, 0.7);',
+      text: '#272C2F',
+      border: '#2B2B2B',
+      background: '#1E1E1E',
+      footer: '#4D4B4B',
+      fontBackground: '#2B2B2B',
     },
     screens: {
       '2xl': { max: '1535px' },
@@ -26,7 +31,10 @@ module.exports = {
       xs: { max: '500px' },
     },
     extend: {
-      backgroundImage: {},
+      backgroundImage: {
+        'banner-image': "url('../public/repeated-bg.jpg')",
+        'new-portal': "url('../public/new-portal.jpg')",
+      },
     },
   },
   plugins: [],

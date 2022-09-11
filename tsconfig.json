@@ -14,7 +14,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
