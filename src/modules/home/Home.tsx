@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
-import { databaseLoadingSelector } from 'store/selectors/database-selectors';
+import { databaseLoadingSelector, modalStatusSelector } from 'store/selectors/database-selectors';
+import WhitelistModal from 'components/whitelist-modal';
 import AppLoaderOverlay from '../../components/app-loader-overlay';
 import { useAppSelector } from '../../store';
 import { contractInfoLoadingSelector } from '../../store/selectors/contract-info-selectors';
@@ -21,6 +22,7 @@ const scroll = Scroll.animateScroll;
 const Home = () => {
   const databaseLoading = useAppSelector(databaseLoadingSelector);
   const contractLoading = useAppSelector(contractInfoLoadingSelector);
+  const modalStatus = useAppSelector(modalStatusSelector);
   useEffect(() => {
     scroll.scrollToTop();
   }, []);
@@ -31,7 +33,9 @@ const Home = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.7 } }}
       className=" bg-fontBackground min-h-screen w-screen flex flex-col"
+      style={modalStatus ? { overflow: 'hidden' } : {}}
     >
+      <WhitelistModal status={modalStatus} />
       {(contractLoading || databaseLoading) && <AppLoaderOverlay />}
       <NavMenu />
 

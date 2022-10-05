@@ -1,5 +1,4 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { ethers } from 'ethers';
 import {
   setBlockchainLoading,
   setBlockchainTransactionLoading,

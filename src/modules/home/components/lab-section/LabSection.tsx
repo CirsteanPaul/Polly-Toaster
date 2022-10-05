@@ -1,7 +1,15 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
+import { useAppDispatch } from 'store';
+import { setModalStatusAction } from 'store/actions/database-actions';
 import { LabCardProps, LabCards as labCards } from './constants';
 
 const LabSection = () => {
+  const disptach = useAppDispatch();
+  const handleClick = () => {
+    disptach(setModalStatusAction(true));
+  };
   const buildCard = (card: LabCardProps): JSX.Element => {
     return (
       <div key={card.name} className="flex flex-col items-center flex-1">
@@ -14,13 +22,20 @@ const LabSection = () => {
     );
   };
   return (
-    <>
+    <div className="flex flex-col">
       <p style={{ borderWidth: '15px' }} className=" my-10 flex items-center justify-center text-center border-border bg-headline sm:text-3xl text-6xl w-full">
         BOOMER LAB SCIENTISTS
       </p>
       <div className=" my-10 grid md:gap-3 md:grid-cols-1 gap-10 grid-cols-2 grid-rows-2">{labCards.map(card => buildCard(card))}</div>
+      <img
+        onClick={handleClick}
+        alt="mistery"
+        style={{ borderWidth: '10px' }}
+        src="mistery.png"
+        className="border-border self-center md:h-20 md:w-20 object-cover h-20 w-20 mb-5 cursor-pointer"
+      />
       <p className=" gallery-image w-full sm:text-2xl flex justify-center items-center py-3 px-5 bg-headline text-text text-5xl">A New Portal set to Open!</p>
-    </>
+    </div>
   );
 };
 
