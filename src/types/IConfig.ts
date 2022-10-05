@@ -8,12 +8,9 @@ export interface IFirebaseConfig {
 }
 interface IConfig {
   environment: string;
-  currentPeriodValue: number;
-  spliterContract: string;
-  totalRoyalties: number;
-  currentPeriodTime: string;
   contract: string;
   network: number;
   rootLink: string;
+  firebase: IFirebaseConfig;
 }
 export default IConfig;

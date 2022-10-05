@@ -34,6 +34,7 @@ module.exports = {
       backgroundImage: {
         'banner-image': "url('../public/repeated-bg.jpg')",
         'new-portal': "url('../public/new-portal.jpg')",
+        'new-portal-mobile': "url('../public/new-portal-mobile.jpg)",
       },
     },
   },

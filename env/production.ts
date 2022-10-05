@@ -1,14 +1,11 @@
 import IConfig from '../src/types/IConfig';
-// import { firebaseConfigProduction } from '../src/env';
+import { firebaseConfigProduction } from './env';
 
 const ProductionEnvironment: IConfig = {
   environment: 'production',
-  contract: '0xa8f79c6ab5183e9429bd05667d3e0d77caaea225',
+  contract: '0x8E4Fd04e5201c8E29F5A9AfB3bbA27e327CD1196',
   network: 1,
-  spliterContract: '0x50B2c150bDA3bEF30373481C464a3a44215dc565',
-  currentPeriodValue: 1000,
-  totalRoyalties: 2000,
-  currentPeriodTime: 'Oct. 1,2022',
   rootLink: '',
+  firebase: firebaseConfigProduction,
 };
 export default ProductionEnvironment;

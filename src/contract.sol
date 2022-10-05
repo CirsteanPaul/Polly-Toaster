@@ -1,3 +1,7 @@
+/**
+ *Submitted for verification at Etherscan.io on 2022-09-13
+*/
+
 // SPDX-License-Identifier: MIT
 
 // File: @openzeppelin/contracts/utils/cryptography/MerkleProof.sol
@@ -1595,15 +1599,16 @@ contract Polly_The_Toaster_Contract is ERC721A, Ownable, ReentrancyGuard {
     mapping(address => uint256) public publicClaimed;
     mapping(address => uint256) public whitelistClaimed;
 
-    string public baseURI;
+    string public baseURI = "ipfs://bafybeihyv5o7o5b44swymyqnjv26apsm3wbyfwuwsatyywg2drxvrmrqia/";
 
     bool public paused = false;
-    uint256 public publicPrice = 0.015 ether;
-    uint256 public presalePrice = 0.1 ether;
-    uint256 public publicMintPerTx = 5;
-    uint256 public whitelistMintPerTx = 5;
-    uint256 public maxSupply = 10000;
-    bool public whitelistStatus;
+    uint256 public publicPrice = 0.08 ether;
+    uint256 public presalePrice = 0.03 ether;
+    uint256 public publicMintPerTx = 7;
+    uint256 public whitelistMintPerTx = 1;
+    uint256 public maxSupply = 1000;
+    bool public whitelistStatus = true;
+    bool public presaleStatus = true;
     bytes32 public root = 0x11d251a3c7c541a8a68635af1ed366692175fbdc9f3b07da18af66c111f85800; 
 
     constructor() ERC721A("Polly The Toaster", "PTT") {}
@@ -1614,14 +1619,17 @@ contract Polly_The_Toaster_Contract is ERC721A, Ownable, ReentrancyGuard {
         require(quantity > 0 && totalSupply() + quantity <= maxSupply, "Invalid amount!");
         if(whitelistStatus) {
             require(isValid(proofs), "You're not whitelisted");
-            require(msg.value >= presalePrice * quantity, "Insufficient Funds!");
             require(whitelistClaimed[msg.sender] + quantity <= whitelistMintPerTx, "You can't mint this amount");
             whitelistClaimed[msg.sender] += quantity;
 
         } else {
-            require(msg.value >= publicPrice * quantity, "Insufficient Funds!");
             require(publicClaimed[msg.sender] + quantity <= publicMintPerTx, "You can't mint this amount");
             publicClaimed[msg.sender] += quantity;
+        }
+        if(presaleStatus) {
+            require(msg.value >= presalePrice * quantity, "Insufficient Funds!");
+        } else {
+            require(msg.value >= publicPrice * quantity, "Insufficient Funds!");
         }
         _safeMint(msg.sender, quantity);
     }
@@ -1674,6 +1682,9 @@ contract Polly_The_Toaster_Contract is ERC721A, Ownable, ReentrancyGuard {
     }
     function setCost(uint256 _newPublicCost) external onlyOwner {
         publicPrice = _newPublicCost;
+    }
+    function setPresaleStatus(bool _newState) external onlyOwner {
+        presaleStatus = _newState;
     }
  
     function setMaxPublic(uint256 _newMaxPublic) external onlyOwner {

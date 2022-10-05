@@ -9,7 +9,7 @@ const LabSection = () => {
           <h2 className="text-text text-3xl">{card.name}</h2>
           <h5 className="text-text text-xl">{card.position}</h5>
         </div>
-        <img alt="gallery" src={card.image} style={{ borderWidth: '10px' }} className="h-60 w-60 sm:h-28 sm:w-28 md:h-32 md:w-32 border-border object-cover" />
+        <img alt="gallery" src={card.image} className="h-60 w-60 gallery-image sm:h-40 sm:w-40 md:h-48 md:w-48 border-border object-cover" />
       </div>
     );
   };

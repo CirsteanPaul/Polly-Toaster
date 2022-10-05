@@ -1,4 +1,4 @@
-import { Contract, ethers } from 'ethers';
+import { ethers } from 'ethers';
 import { RootState } from '..';
 
 export const blockchainAccountSelector = (state: RootState): string => state.blockchain.account;
@@ -8,5 +8,3 @@ export const blockchainLoadingSelector = (state: RootState): boolean => state.bl
 export const blockchainIsConnectedSelector = (state: RootState): boolean => state.blockchain.isConnected;
 export const blockchainTransactionLoadingSelector = (state: RootState): boolean => state.blockchain.transactionLoading;
 export const blockchainTransactionStatusSelector = (state: RootState): number => state.blockchain.transactionStatus;
-export const blockchainExchangeValueSelector = (state: RootState): number => state.blockchain.exchangeValue;
-export const blockchainSpliterContractSelector = (state: RootState): Contract => state.blockchain.splitterContract;

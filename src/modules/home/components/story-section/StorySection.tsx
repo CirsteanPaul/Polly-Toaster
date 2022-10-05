@@ -10,8 +10,8 @@ const StorySection = (): JSX.Element => {
         src="mistery.png"
         className="border-border md:h-32 md:w-32 object-cover h-60 w-60 absolute top-0 left-1/2"
       />
-      <h3 className=" md:text-4xl md:mt-14 text-6xl mt-28 text-text tracking-wide font-extrabold my-5">POLLY THE TOASTER</h3>
-      <p className=" sm:text-xl md:text-2xl text-3xl text-text tracking-wide ">
+      <h3 className=" md:text-4xl md:mt-14 text-6xl mt-28 text-text text-center tracking-wide font-extrabold my-5">POLLY THE TOASTER</h3>
+      <p className=" sm:text-xl text-justify md:text-2xl text-3xl text-text tracking-wide ">
         It was the year 1955. The BOOMER laboratory in Utah was a facility that was shrouded by much mystery and secrecy. No one was certain of the manner of unspeakable things
         that transpired behind the four walls of the facility. But it had been long rumoured that the scientists were running unsanctioned and somewhat unorthodox experiments, in
         hopes of finally uncovering the truth of whether we are truly alone in the universe. The discovery would have been welcomed, but many feared they would inadvertently open a
@@ -32,7 +32,7 @@ const StorySection = (): JSX.Element => {
         Suddenly, a red warning light began to beep from the machine- something was wrong! There was widespread panic. The power stabilizer within the machine had malfunctioned,
         and as a result, the power began to surge uncontrollably. The portal machine went on overdrive. It randomly began to open portals into different worlds and alternate
         realities. The same being they saw from the first wormhole kept popping through each of the open portals. Everything was happening so quickly. What began with just one,
-        soon multiplied to a hundred, and then to thousands. Before they could kill the power to the machine, the room was already flooded with approximately 10,000 versions of the
+        soon multiplied to a hundred, and then to thousands. Before they could kill the power to the machine, the room was already flooded with approximately 10,000 versions of the
         strange Toaster. They all kept repeating one-word “POLLY.” Ordinarily, that was the name the scientists branded them. The scientist at the BOOMER lab knew they couldn’t
         accommodate all the POLLY(s), so they began offering them out to the highest bidder. They hoped to clear out their Lab as quickly as possible, so they could recommence
         their exploration of the universe.

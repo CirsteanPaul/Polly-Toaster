@@ -1,13 +1,10 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Element } from 'react-scroll';
 import { motion } from 'framer-motion';
+import { databaseLoadingSelector } from 'store/selectors/database-selectors';
 import AppLoaderOverlay from '../../components/app-loader-overlay';
-// import NavMenu from '../../components';
-// import Footer from '../../components/footer';
-import { useAppDispatch, useAppSelector } from '../../store';
+import { useAppSelector } from '../../store';
 import { contractInfoLoadingSelector } from '../../store/selectors/contract-info-selectors';
-import { mintPage } from '../../router/constants';
 import MintSection from './components/mint-section';
 import NavMenu from '../../components/nav-menu';
 import StorySection from './components/story-section';
@@ -22,8 +19,7 @@ const Scroll = require('react-scroll');
 const scroll = Scroll.animateScroll;
 
 const Home = () => {
-  const location = useLocation();
-  const dispatch = useAppDispatch();
+  const databaseLoading = useAppSelector(databaseLoadingSelector);
   const contractLoading = useAppSelector(contractInfoLoadingSelector);
   useEffect(() => {
     scroll.scrollToTop();
@@ -36,7 +32,7 @@ const Home = () => {
       exit={{ opacity: 0, transition: { duration: 0.7 } }}
       className=" bg-fontBackground min-h-screen w-screen flex flex-col"
     >
-      {contractLoading && <AppLoaderOverlay />}
+      {(contractLoading || databaseLoading) && <AppLoaderOverlay />}
       <NavMenu />
 
       <Element name="mint-section">

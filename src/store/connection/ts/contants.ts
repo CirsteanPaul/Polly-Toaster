@@ -7,5 +7,4 @@ export interface MetamaskData {
   currentAccount: string;
   provider: ethers.providers.Web3Provider;
   balanceContract: ethers.Contract;
-  spliterContract: ethers.Contract;
 }

@@ -1,14 +1,11 @@
 import IConfig from '../src/types/IConfig';
-// import { firebaseConfigDevelop } from '../src/env';
+import { firebaseConfigAcceptance } from './env';
 
 const AcceptanceEnvironment: IConfig = {
   environment: 'acceptance',
-  contract: '0xA1Feb625e6d48b66519236f7183cbBb55A969528',
-  network: 3,
-  currentPeriodValue: 1000,
-  totalRoyalties: 200000,
-  spliterContract: '0xB094cce8dBC669381155bc2dA93b7B6d23A22135',
-  currentPeriodTime: 'Oct. 1,2022',
+  contract: '0x461fAEeb7ddbB78225e872e1dF179d48ea81cAf9',
+  network: 4,
   rootLink: '',
+  firebase: firebaseConfigAcceptance,
 };
 export default AcceptanceEnvironment;

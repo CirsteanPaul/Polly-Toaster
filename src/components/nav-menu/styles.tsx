@@ -15,10 +15,14 @@ interface LinkProps {
 }
 
 export const NavContainer = ({ children }: Props): JSX.Element => {
-  return <nav className="bg-fontBackground w-screen fixed flex justify-between p-2 px-3 z-50">{children}</nav>;
+  return <nav className="bg-fontBackground w-screen fixed flex justify-between p-1 px-3 z-50">{children}</nav>;
 };
 export const NavLogo = (): JSX.Element => {
-  return <p className="items-center flex justify-center md:text-3xl text-5xl text-headline font-bold">Poly The Toaster</p>;
+  return (
+    <p style={{ paddingTop: '8px' }} className="items-center flex justify-center md:text-3xl text-5xl text-headline font-bold">
+      Polly The Toaster
+    </p>
+  );
 };
 export const NavLinksWrapper = ({ children }: Props): JSX.Element => {
   return <div className="flex gap-5">{children}</div>;

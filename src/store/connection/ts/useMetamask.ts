@@ -8,7 +8,7 @@ import { switchNetwork } from './switchNetwork';
 import { networkId, networkName } from './config';
 import { MetamaskData } from './contants';
 import alertService from '../../../services/alert-handler';
-import { abi, abiSpliter, contractAddress, spliterAddress } from './contract';
+import { abi, contractAddress } from './contract';
 
 const getProvider = async () => {
   const prov: any = await detectEthereumProvider();
@@ -37,12 +37,6 @@ const tryToConnect = async () => {
 const getContract = (provider: ethers.providers.Web3Provider, account: string): ethers.Contract => {
   const acc = provider.getSigner(account);
   const contract = new ethers.Contract(contractAddress, abi, acc);
-  contract.connect(acc);
-  return contract;
-};
-const getSpliterContract = (provider: ethers.providers.Web3Provider, account: string): ethers.Contract => {
-  const acc = provider.getSigner(account);
-  const contract = new ethers.Contract(spliterAddress, abiSpliter, acc);
   contract.connect(acc);
   return contract;
 };
@@ -86,15 +80,13 @@ const connectAccount = async (currentAccount: string): Promise<MetamaskData | nu
     const result = await provider.getBalance(currentAccount);
     balance = parseInt(result._hex, 16);
     balanceContract = getContract(provider, currentAccount);
-    spliterContract = getSpliterContract(provider, currentAccount);
-
     addListeners();
   } catch (e) {
     console.log(e);
     alertService.somethingWentWrongPopup(networkName);
     return null;
   }
-  return { currentAccount, balance, chainId, chainName, provider, balanceContract, spliterContract };
+  return { currentAccount, balance, chainId, chainName, provider, balanceContract };
 };
 export const onClickConnect = async (currentAccount: string): Promise<MetamaskData | null> => {
   const provider: any = await tryToConnect();

@@ -1,4 +1,4 @@
 module.exports = {
-  name: 'App [Acceptance]',
-  slug: 'App-acceptance',
+  name: 'App [Production]',
+  slug: 'App-production',
 };
