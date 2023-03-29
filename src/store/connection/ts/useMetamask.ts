@@ -89,17 +89,19 @@ const connectAccount = async (currentAccount: string): Promise<MetamaskData | nu
   return { currentAccount, balance, chainId, chainName, provider, balanceContract };
 };
 export const onClickConnect = async (currentAccount: string): Promise<MetamaskData | null> => {
-  const provider: any = await tryToConnect();
+  let provider: any;
+  if (window.ethereum) {
+    provider = new ethers.providers.Web3Provider(window.ethereum);
+  }
+
   if (!provider) return null;
   window.removeEventListener('ethereum#initialized', handleEthereum);
   if (!currentAccount) {
     try {
-      const { result } = await provider.send('eth_requestAccounts', []);
-      if (result.length > 0) {
-        // eslint-disable-next-line prefer-destructuring
-        currentAccount = result[0];
-        localStorage.setItem('account', result[0]);
-      }
+      const accounts: string[] = await provider.listAccounts();
+      const myAccount = accounts[0];
+      currentAccount = myAccount;
+      localStorage.setItem('account', currentAccount);
     } catch (e: any) {
       console.log(e);
     }

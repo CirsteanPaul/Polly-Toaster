@@ -1,5 +1,5 @@
 import IConfig from '../src/types/IConfig';
-import { firebaseConfigProduction } from './env';
+import { firebaseConfigProduction } from '../src/config/env';
 
 const ProductionEnvironment: IConfig = {
   environment: 'production',
