@@ -1,5 +1,5 @@
 import IConfig from '../src/types/IConfig';
-import { firebaseConfigAcceptance } from '../src/config/env';
+import { firebaseConfigAcceptance } from './env';
 
 const AcceptanceEnvironment: IConfig = {
   environment: 'acceptance',

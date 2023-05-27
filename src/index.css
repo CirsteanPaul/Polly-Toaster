@@ -11,6 +11,9 @@
     font-family: Westgate;
 }
 
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
 .gallery-image {
   border-width: 20px;
